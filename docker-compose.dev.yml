@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  api:
+    build: .
+    container_name: auth-api-dev
+    env_file:
+      - .env.development
+    ports:
+      - "${PORT:-4000}:4000"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16-alpine
+    container_name: auth-db-dev
+    env_file:
+      - .env.development
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"   # optional, for connecting via GUI locally
+    volumes:
+      - pgdata_dev:/var/lib/postgresql/data
+
+volumes:
+  pgdata_dev:

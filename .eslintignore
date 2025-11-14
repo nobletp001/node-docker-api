@@ -1,0 +1,9 @@
+node_modules
+.dist
+coverage
+dist
+build
+.prisma
+prisma/migrations
+*.config.js
+*.config.cjs
