@@ -19,17 +19,17 @@ const loggerTransports = [
 ]
 
 if (isProduction) {
-  loggerTransports.push(
-    new DailyRotateFile({
-      dirname: 'logs',
-      filename: 'auth-api-%DATE%.log',
-      datePattern: 'YYYY-MM-DD',
-      zippedArchive: true,
-      maxSize: '20m',
-      maxFiles: '14d',
-      level: 'info',
-    })
-  )
+  // Transports.push(
+  //   new DailyRotateFile({
+  //     dirname: 'logs',
+  //     filename: 'auth-api-%DATE%.log',
+  //     datePattern: 'YYYY-MM-DD',
+  //     zippedArchive: true,
+  //     maxSize: '20m',
+  //     maxFiles: '14d',
+  //     level: 'info',
+  //   })
+  // )
 }
 
 const logger = createLogger({
