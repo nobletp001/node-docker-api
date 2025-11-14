@@ -1,5 +1,5 @@
-import DailyRotateFile from 'winston-daily-rotate-file'
 import { createLogger, format, transports } from 'winston'
+
 import { isProduction } from '@/config/env'
 
 const consoleFormat = format.printf(({ level, message, timestamp, ...meta }) => {
@@ -13,7 +13,7 @@ const loggerTransports = [
     format: format.combine(
       format.colorize({ all: !isProduction }),
       format.timestamp(),
-      isProduction ? format.json() : consoleFormat
+      isProduction ? format.json() : consoleFormat,
     ),
   }),
 ]
@@ -34,7 +34,12 @@ if (isProduction) {
 
 const logger = createLogger({
   level: isProduction ? 'info' : 'debug',
-  format: format.combine(format.timestamp(), format.errors({ stack: true }), format.splat(), format.json()),
+  format: format.combine(
+    format.timestamp(),
+    format.errors({ stack: true, },),
+    format.splat(),
+    format.json(),
+  ),
   transports: loggerTransports,
 })
 

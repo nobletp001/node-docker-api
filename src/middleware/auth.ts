@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from 'express'
+
 import { sendError } from '@/utils/responses'
 import { verifyAccessToken } from '@/utils/token'
 

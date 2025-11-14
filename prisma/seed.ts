@@ -1,15 +1,15 @@
-import { PrismaClient } from '@prisma/client';
-import bcrypt from 'bcryptjs';
-import { config } from 'dotenv';
+import { PrismaClient } from '@prisma/client'
+import bcrypt from 'bcryptjs'
+import { config } from 'dotenv'
 
-config();
+config()
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient()
 
-const saltRounds = Number(process.env.SALT_ROUNDS) || 10;
+const saltRounds = Number(process.env.SALT_ROUNDS) || 10
 
 async function main() {
-  const passwordHash = await bcrypt.hash('ChangeMe123!', saltRounds);
+  const passwordHash = await bcrypt.hash('ChangeMe123!', saltRounds)
 
   await prisma.user.upsert({
     where: { email: 'admin@example.com' },
@@ -18,16 +18,16 @@ async function main() {
       email: 'admin@example.com',
       passwordHash,
       firstName: 'Admin',
-      lastName: 'User'
-    }
-  });
+      lastName: 'User',
+    },
+  },)
 }
 
 main()
   .catch((error) => {
-    console.error(error);
-    process.exit(1);
+    console.error(error)
+    process.exit(1)
   })
   .finally(async () => {
-    await prisma.$disconnect();
-  });
+    await prisma.$disconnect()
+  },)

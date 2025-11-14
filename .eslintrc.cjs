@@ -55,7 +55,7 @@ module.exports = {
     'semi': 'off',
     '@typescript-eslint/quotes': ['error', 'single', { avoidEscape: true }],
     'quotes': 'off',
-    '@typescript-eslint/comma-dangle': ['error', 'always'],
+    '@typescript-eslint/comma-dangle': ['error','always-multiline'],
     'comma-dangle': 'off',
     'import/order': [
       'error',

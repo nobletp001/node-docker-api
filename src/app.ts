@@ -1,6 +1,7 @@
 import cors from 'cors'
 import express from 'express'
 import helmet from 'helmet'
+
 import errorHandler from '@/middleware/errorHandler'
 import httpLogger from '@/middleware/httpLogger'
 import routes from '@/routes'

@@ -1,4 +1,5 @@
 import jwt, { JwtPayload } from 'jsonwebtoken'
+
 import env from '@/config/env'
 
 export interface TokenPayload extends JwtPayload {
