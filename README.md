@@ -23,7 +23,7 @@ Update the values in `.env` to match your environment before running migrations.
 - `npm run prisma:migrate` – run migrations interactively.
 - `npm run prisma:studio` – open Prisma Studio.
 
-## Project Structure
+## Project Structures
 
 ```
 auth-api/
