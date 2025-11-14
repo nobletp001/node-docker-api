@@ -7,7 +7,7 @@ services:
     env_file:
       - .env.development
     ports:
-      - "${PORT:-4000}:4000"
+      - '${PORT:-4000}:4000'
     depends_on:
       - db
 
@@ -21,7 +21,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
     ports:
-      - "5432:5432"   # optional, for connecting via GUI locally
+      - '5432:5432' # optional, for connecting via GUI locally
     volumes:
       - pgdata_dev:/var/lib/postgresql/data
 

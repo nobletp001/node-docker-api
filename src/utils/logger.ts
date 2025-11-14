@@ -36,7 +36,7 @@ const logger = createLogger({
   level: isProduction ? 'info' : 'debug',
   format: format.combine(
     format.timestamp(),
-    format.errors({ stack: true, },),
+    format.errors({ stack: true }),
     format.splat(),
     format.json(),
   ),

@@ -7,5 +7,5 @@ services:
     env_file:
       - .env
     ports:
-      - "${PORT:-4000}:4000"
+      - '${PORT:-4000}:4000'
     # No db service here – app connects directly to Supabase using DATABASE_URL

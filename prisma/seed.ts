@@ -20,7 +20,7 @@ async function main() {
       firstName: 'Admin',
       lastName: 'User',
     },
-  },)
+  })
 }
 
 main()
@@ -30,4 +30,4 @@ main()
   })
   .finally(async () => {
     await prisma.$disconnect()
-  },)
+  })

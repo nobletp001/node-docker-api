@@ -2,14 +2,14 @@ module.exports = {
   root: true,
   env: {
     node: true,
-    es2021: true
+    es2021: true,
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: './tsconfig.json',
+    project: './tsconfig.eslint.json',
     tsconfigRootDir: __dirname,
     ecmaVersion: 2021,
-    sourceType: 'module'
+    sourceType: 'module',
   },
   plugins: ['@typescript-eslint', 'unused-imports', 'import', 'prettier'],
   extends: [
@@ -17,30 +17,32 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:import/recommended',
     'plugin:import/typescript',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
   ],
   settings: {
     'import/resolver': {
       typescript: {
-        project: './tsconfig.json'
+        project: './tsconfig.json',
       },
       node: {
         extensions: ['.ts', '.js'],
-        paths: ['./src']
-      }
-    }
+        paths: ['./src'],
+      },
+    },
   },
   rules: {
     'no-console': ['error', { allow: ['warn', 'error'] }],
     'no-unused-vars': 'off',
+
     '@typescript-eslint/no-unused-vars': [
       'error',
       {
         argsIgnorePattern: '^_',
         varsIgnorePattern: '^_',
-        destructuredArrayIgnorePattern: '^_'
-      }
+        destructuredArrayIgnorePattern: '^_',
+      },
     ],
+
     'unused-imports/no-unused-imports': 'error',
     'unused-imports/no-unused-vars': [
       'warn',
@@ -48,15 +50,23 @@ module.exports = {
         vars: 'all',
         varsIgnorePattern: '^_',
         args: 'after-used',
-        argsIgnorePattern: '^_'
-      }
+        argsIgnorePattern: '^_',
+      },
     ],
+
     '@typescript-eslint/semi': ['error', 'never'],
-    'semi': 'off',
+    semi: 'off',
+
     '@typescript-eslint/quotes': ['error', 'single', { avoidEscape: true }],
-    'quotes': 'off',
-    '@typescript-eslint/comma-dangle': ['error','always-multiline'],
+    quotes: 'off',
+
+    // trailing commas – aligned with Prettier
+    '@typescript-eslint/comma-dangle': ['error', 'always-multiline'],
     'comma-dangle': 'off',
+
+    // silence noisy default/named import warnings (bcrypt, jwt, express, etc.)
+    'import/no-named-as-default-member': 'off',
+
     'import/order': [
       'error',
       {
@@ -65,25 +75,27 @@ module.exports = {
           {
             pattern: '@/**',
             group: 'internal',
-            position: 'after'
-          }
+            position: 'after',
+          },
         ],
         pathGroupsExcludedImportTypes: ['builtin'],
         'newlines-between': 'always',
         alphabetize: {
           order: 'asc',
-          caseInsensitive: true
-        }
-      }
+          caseInsensitive: true,
+        },
+      },
     ],
+
     'import/newline-after-import': 'error',
+
     'prettier/prettier': [
       'error',
       {
         singleQuote: true,
         semi: false,
-        trailingComma: 'all'
-      }
-    ]
-  }
+        trailingComma: 'all',
+      },
+    ],
+  },
 }
