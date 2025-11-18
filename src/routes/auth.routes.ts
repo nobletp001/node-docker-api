@@ -14,6 +14,13 @@ import { loginSchema, refreshSchema, registerSchema } from '@/validators/auth.va
 const router = Router()
 
 router.post('/register', validateRequest(registerSchema), registerHandler)
+
+
+
+
+
+
+
 router.post('/login', validateRequest(loginSchema), loginHandler)
 router.post('/refresh', validateRequest(refreshSchema), refreshHandler)
 router.post('/logout', validateRequest(refreshSchema), logoutHandler)
